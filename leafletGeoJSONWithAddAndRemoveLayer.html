@@ -33,13 +33,6 @@
 		alert("Loading Earthquakes");
 		getEarthquakes();
 	}
-	// make sure that there is a variable for the earthquake layer to be referenced by
-	// this should be GLOBAL – i.e. not inside a function – so that any code can see the variable	
-	var earthquakelayer;
-	function removeEarthquakeData() {
-		alert("Earthquake data will be removed");
-		mymap.removeLayer( earthquakelayer );
-	}
 	// create a variable that will hold the XMLHttpRequest() - this must be done outside a function so that all the functions can use the same variable
 	var client;
 	// and a variable that will hold the layer itself – we need to do this outside the function so that we can use it to remove the layer later on
@@ -69,9 +62,13 @@
 	// change the map zoom so that all the data is shown
 	mymap.fitBounds(earthquakelayer.getBounds());
 	}
-	document.addEventListener('DOMContentLoaded', function() {
-		getEarthquakes();
-	}, false);
+	// make sure that there is a variable for the earthquake layer to be referenced by
+	// this should be GLOBAL – i.e. not inside a function – so that any code can see the variable	
+	var earthquakelayer;
+	function removeEarthquakeData() {
+		alert("Earthquake data will be removed");
+		mymap.removeLayer( earthquakelayer );
+	}
 	</script>
 </body>
 </html>
